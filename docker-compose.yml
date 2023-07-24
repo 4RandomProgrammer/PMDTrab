@@ -47,9 +47,15 @@ services:
     volumes:
         - ./apps:/opt/spark-apps
         - ./data:/opt/spark-data
-  demo-database: #Pelo que eu entendi vai aq não?
-    image: postgres:11.7-alpine
+  neo4j:
+    image: neo4j:community
     ports:
-      - "5432:5432"
+      - 7888:7474
+      - 7999:7687
     environment:
-      - POSTGRES_PASSWORD=securepassword
+      - NEO4J_AUTH=neo4j/password
+    volumes:
+      - ./Neo4j/db/data:/data
+      - ./Neo4j/conf:/conf
+      - ./Neo4j/logs:/logs
+      - ./Neo4j/plugins:/plugins
