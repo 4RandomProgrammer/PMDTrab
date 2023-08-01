@@ -1,4 +1,7 @@
 Before testing we need to create a table in Apache Kudu via Impala:
+```bash
+docker exec -it impala impala-shell
+```
 ```SQL
 connect;   -- (run again if not successful)
 
