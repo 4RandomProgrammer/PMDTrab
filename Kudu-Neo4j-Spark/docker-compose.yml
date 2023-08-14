@@ -28,6 +28,7 @@ services:
       replicas: 3
   impala:
     image: apache/kudu:impala-latest
+    platform: linux/amd64
     container_name: impala
     depends_on:
       - kudu-master-1
@@ -40,7 +41,7 @@ services:
     image: jupyter/pyspark-notebook
     container_name: pyspark-notebook
     ports:
-      - 127.0.0.1:8888:8888
+      - 8888:8888
     environment:
       - JUPYTER_ENABLE_LAB=yes
     networks:
