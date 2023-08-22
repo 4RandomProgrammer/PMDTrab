@@ -7,18 +7,32 @@ Before testing the environment we need to create a table in Apache Kudu via Impa
 ```bash
 docker exec -it impala impala-shell
 ```
-In the Impala shell, use the following commands to insert a new table called testA
+In the Impala shell, use the following commands to insert a new table called jogos and equipes
 ```SQL
 connect;   -- (run again if not successful)
 
-CREATE TABLE testA (
-  literal STRING,
-  nota DECIMAL(8, 5),
-  dados DECIMAL(8, 5),
-  idade INT,
-  lorem INT,
-  ipsum STRING,
-  PRIMARY KEY(literal, nota, dados)
+CREATE TABLE jogos (
+  partida STRING,
+  mapa STRING,
+  equipe1 STRING,
+  equipe2 STRING,
+  vitorioso STRING, 
+  ct STRING,
+  tr STRING,
+  PRIMARY KEY(partida, mapa)
+)
+STORED AS KUDU;
+
+CREATE TABLE equipes (
+  equipe STRING,
+  jogos DECIMAL(8, 5),
+  vitorias DECIMAL(8, 5),
+  derrotas DECIMAL(8, 5),
+  md3 DECIMAL(8, 5),
+  md5 DECIMAL(8, 5),
+  jmd3 DECIMAL(8, 5),
+  jmd5 DECIMAL(8, 5),
+  PRIMARY KEY(equipe)
 )
 STORED AS KUDU;
 
