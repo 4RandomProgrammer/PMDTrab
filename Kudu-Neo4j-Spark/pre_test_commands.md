@@ -23,13 +23,28 @@ CREATE TABLE jogos (
 )
 STORED AS KUDU;
 
+CREATE TABLE proc (
+  partida STRING,
+  mapa STRING,
+  equipe1 STRING,
+  equipe2 STRING,
+  vitorioso STRING,
+  md STRING,
+  PRIMARY KEY(partida, mapa)
+)
+STORED AS KUDU;
+
 CREATE TABLE equipes (
   equipe STRING,
   jogos DECIMAL(8, 5),
   vitorias DECIMAL(8, 5),
   derrotas DECIMAL(8, 5),
+  md1 DECIMAL(8, 5),
+  md2 DECIMAL(8, 5),
   md3 DECIMAL(8, 5),
   md5 DECIMAL(8, 5),
+  jmd1 DECIMAL(8, 5),
+  jmd2 DECIMAL(8, 5),
   jmd3 DECIMAL(8, 5),
   jmd5 DECIMAL(8, 5),
   PRIMARY KEY(equipe)
