@@ -61,4 +61,4 @@ Now, check the logs of the pyspark-notebook container to find the link with the 
 ```bash
 docker logs pyspark-notebook
 ```
-Finally, to execute the tests enter the pyspark environment, upload the connection_test notebook and run all cells.
+Finally, to execute the tests enter the pyspark environment, upload the data_insertion notebook and run all cells.
